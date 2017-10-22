@@ -4,8 +4,8 @@
 #include <stdlib.h>
 int main(void) {
 int month,day;
-	scanf("%d\n", &month);
-	scanf("%d\n", &day);
+	scanf("%d", &month);
+	scanf("%d", &day);
 	if((month ==1 && day <=19 && day >=1) || (month==12 && day >=22 && day<=31)) {
 		printf("You were born in somewhere between Dec 22-Jan 19. You are a Capricorn.\n");
 	}
@@ -43,19 +43,14 @@ int month,day;
 		printf("You were born somewhere between November 22-December 21. You are a Sagittarius.");
 
 	}
-return 0;
+        	srand(getpid());
+	        int numb1 = rand() % 59;
+        	int numb2 = numb1 + 1;
+	        int numb3 = rand() % 59 + 1;
+        	int numb4 = rand() % 59 +1;
+       		printf("Today's winning numbers are %d, %d, and %d. Have a great day!\n", numb2, numb3, numb4);	
+	        return 0;
 }
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
-        int main(void) {
-        srand(getpid());
-        int numb1 = rand() % 59;
-        int numb2 = numb1 + 1;
-        int numb3 = rand() % 59 + 1;
-        int numb4 = rand() % 59 +1;
-        printf("Today's winning numbers are %d, %d, and %d. Have a great day!\n", numb2, numb3, $
-        return 0;
-}
+
 
