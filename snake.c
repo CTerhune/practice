@@ -5,7 +5,8 @@ int main(void) {
 
 
 printf("Enter the dimensions of the board\n");
-int a, b, m, v, junk;
+int a, b, m;
+char junk, v;
 scanf("%d", &a);
 scanf("%d", &b);
 
