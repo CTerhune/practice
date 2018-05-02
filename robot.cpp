@@ -98,10 +98,12 @@ int main() {
         team2.push_back(t8);
 
 if((t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth()) > 30) {
-	cout << endl << "Your team health exceeds 30" << endl << endl;
+	cout << endl << "Your team health exceeds 30, you are disqualified, team 2 wins" << endl << endl;
+	return 0;
 }
 if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
-	cout << endl << "Your team health exceeds 30" << endl << endl;
+	cout << endl << "Your team health exceeds 30, you are disqualified, team 1 wins." << endl << endl;
+	return 0;
 }
 
 
@@ -141,16 +143,32 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 	cout << "Damage for " << t7.getName()  << " is: " << t7.getDmg() << endl;
 	cout << "Damage for " << t8.getName()  << " is: " << t8.getDmg() << endl << endl;
 
+	int fighter_t1;
+	int fighter_t2;
+
+	cout << endl << "Choose a fighter from team 1 (0-3)" << endl;
+	cin >> fighter_t1;
+	cout << endl << "Choose a fighter from team 2 (0-3)" << endl;
+	cin >> fighter_t2;
 
 
 
+	team1.at(fighter_t1).attack(team2.at(fighter_t2));
+	team2.at(fighter_t2).attack(team1.at(fighter_t1));
+	cout << "" << team1.at(fighter_t1).getName() << " attacked " << team2.at(fighter_t2).getName() << " for " << team1.at(fighter_t1).getDmg() << endl;
+	cout << "" << team2.at(fighter_t2).getName() << " attacked " << team1.at(fighter_t1).getName() << " for " << team2.at(fighter_t2).getDmg() << endl;
 
-/*        if(t1.checkLife() == 1) {
-                cout << "Robot 1 is alive" << endl;
+
+        if(team2.at(fighter_t2).checkLife() == 1) {
+                cout << "Team 2's robot is alive" << endl;
         } else {
-                cout << "Robot 1 is dead" << endl;
-        } */
-
+                cout << "Team 2's robot is dead" << endl;
+        }
+	if(team1.at(fighter_t1).checkLife() == 1) {
+		cout << "Team 1's robot is still alive" << endl;
+	} else {
+		cout << "Team 1's robot is dead" << endl;
+	}
 
 
 
