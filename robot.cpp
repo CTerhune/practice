@@ -145,40 +145,39 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 
 	int fighter_t1;
 	int fighter_t2;
-	int fighter_t3;
-	int fighter_t4;
-
 
 	cout << endl << "Choose a fighter from team 1 (0-3)" << endl;
 	cin >> fighter_t1;
 	cout << endl << "Choose a fighter from team 2 (0-3) that will be attacked by your previous choice" << endl;
 	cin >> fighter_t2;
 
-	cout << endl << "Now choose a fighter from team 2 (0-3)" << endl;
-	cin >> fighter_t4;
-	cout << endl << "Choose a fighter from team 1 (0-3) that will be attacked by your previous choice" << endl;
-	cin >> fighter_t3;
-
-
-
+while(team1.at(0).getHealth() + team1.at(1).getHealth() + team1.at(2).getHealth() + team1.at(3).getHealth() > 0 && team2.at(0).getHealth() + team2.at(1).getHealth() + team2.at(2).getHealth() + team2.at(3).getHealth() > 0) {
 	team1.at(fighter_t1).attack(team2.at(fighter_t2));
-	team2.at(fighter_t2).attack(team1.at(fighter_t1));
+	team1.at(fighter_t2).attack(team1.at(fighter_t1));
 	cout << "" << team1.at(fighter_t1).getName() << " attacked " << team2.at(fighter_t2).getName() << " for " << team1.at(fighter_t1).getDmg() << endl;
 	cout << "" << team2.at(fighter_t2).getName() << " attacked " << team1.at(fighter_t1).getName() << " for " << team2.at(fighter_t2).getDmg() << endl;
 
 
-        if(team2.at(fighter_t2).checkLife() == 1) {
-                cout << "Team 2's robot is alive" << endl;
+        if(team1.at(fighter_t1).checkLife() == 1) {
+                cout << "Team 1's robot is alive" << endl;
         } else {
-                cout << "Team 2's robot is dead" << endl;
+                cout << "Team 1's robot is dead" << endl;
         }
-	if(team1.at(fighter_t1).checkLife() == 1) {
-		cout << "Team 1's robot is still alive" << endl;
+	if(team2.at(fighter_t2).checkLife() == 1) {
+		cout << "Team 2's robot is still alive" << endl;
 	} else {
-		cout << "Team 1's robot is dead" << endl;
+		cout << "Team 2's robot is dead" << endl;
 	}
+ }
 
-
+if(t5.getHealth() + t6.getHealth() + t7.getHealth() + t7.getHealth() == 0) {
+	cout << "Team 1 wins!" << endl;
+	return 0;
+}
+if(t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() == 0) {
+	cout << "Team 2 wins!" << endl;
+	return 0;
+}
 
 
 
