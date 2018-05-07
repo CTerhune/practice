@@ -11,7 +11,7 @@ robot::robot(int init_dmg) {
 }
 
 string robot::getName() {
-	return name;
+ 	return name;
 }
 
 int robot::getHealth() {
@@ -145,11 +145,19 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 
 	int fighter_t1;
 	int fighter_t2;
+	int fighter_t3;
+	int fighter_t4;
+
 
 	cout << endl << "Choose a fighter from team 1 (0-3)" << endl;
 	cin >> fighter_t1;
-	cout << endl << "Choose a fighter from team 2 (0-3)" << endl;
+	cout << endl << "Choose a fighter from team 2 (0-3) that will be attacked by your previous choice" << endl;
 	cin >> fighter_t2;
+
+	cout << endl << "Now choose a fighter from team 2 (0-3)" << endl;
+	cin >> fighter_t4;
+	cout << endl << "Choose a fighter from team 1 (0-3) that will be attacked by your previous choice" << endl;
+	cin >> fighter_t3;
 
 
 
