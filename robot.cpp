@@ -8,44 +8,62 @@ using namespace std;
 
 robot::robot(int init_dmg) {
 	dmg = init_dmg;
-}
+};
 
 string robot::getName() {
  	return name;
-}
+};
 
 int robot::getHealth() {
 	return health;
-}
+};
 
 int robot::getDmg() {
 	return dmg;
-}
+};
 
 int robot::checkLife() {
 	if(health > 0) {
-		return 1;
-	}
-	if(health <= 0) {
 		return 0;
 	}
-}
+	if(health <= 0) {
+		return 1;
+	}
+};
 
 void robot::setName() {
 	cout << "Enter a name: ";
 	cin >> name;
-}
+};
 
 void robot::setHealth() {
 	cout << "Enter an amount: ";
 	cin >> health;
-}
+};
 void robot::attack(robot& other_robot) {
 	other_robot.loseHealth(dmg);
-}
+};
 void robot::loseHealth(int health_lost) {
 	health = health - health_lost;
-}
+};
+tank::tank(int init_dmg) {
+};
+void tank::extraHealth(int health_add) {
+	health_add = health + 3;
+};
+mage::mage(int init_dmg) {
+};
+void mage::extraDmg(int dmg_add) {
+	dmg_add = dmg + 3;
+};
+chad::chad(int init_dmg) {
+};
+void chad::extraDmg(int dmg_add) {
+	dmg_add = dmg + 3;
+};
+void chad::extraHealth(int health_add) {
+	health_add = health + 3;
+};
 
 int main() {
 /* team1.at(0).getHealth(); 'chain methods' */
@@ -63,7 +81,7 @@ int main() {
 
 	t1.setName();
 	t1.setHealth();
-
+/*
 	t2.setName();
 	t2.setHealth();
 
@@ -72,10 +90,10 @@ int main() {
 
         t4.setName();
         t4.setHealth();
-
+*/
         t5.setName();
         t5.setHealth();
-
+/*
         t6.setName();
         t6.setHealth();
 
@@ -84,7 +102,7 @@ int main() {
 
         t8.setName();
         t8.setHealth();
-
+*/
         vector <robot> team1;
         team1.push_back(t1);
         team1.push_back(t2);
@@ -111,28 +129,28 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 
 
 	cout << endl << "Name for Robot 1 is: " << t1.getName() << endl;
-	cout << "Name for Robot 2 is: " << t2.getName() << endl;
+/*	cout << "Name for Robot 2 is: " << t2.getName() << endl;
 	cout << "Name for Robot 3 is: " << t3.getName() << endl;
 	cout << "Name for Robot 4 is: " << t4.getName() << endl;
 	cout << "Name for Robot 5 is: " << t5.getName() << endl;
 	cout << "Name for Robot 6 is: " << t6.getName() << endl;
 	cout << "Name for Robot 7 is: " << t7.getName() << endl;
 	cout << "Name for Robot 8 is: " << t8.getName() << endl << endl;
-
+*/
 
 
 
 	cout << "Health for " << t1.getName()  << " is: " << t1.getHealth() << endl;
-	cout << "Health for " << t2.getName()  << " is: " << t2.getHealth() << endl;
+/*	cout << "Health for " << t2.getName()  << " is: " << t2.getHealth() << endl;
 	cout << "Health for " << t3.getName()  << " is: " << t3.getHealth() << endl;
 	cout << "Health for " << t4.getName()  << " is: " << t4.getHealth() << endl;
-	cout <<  endl << "Health for team 1 is: " << t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() << endl << endl;
+*/	cout <<  endl << "Health for team 1 is: " << t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() << endl << endl;
 	cout << "Health for " << t5.getName()  << " is: " << t5.getHealth() << endl;
-	cout << "Health for " << t6.getName()  << " is: " << t6.getHealth() << endl;
+/*	cout << "Health for " << t6.getName()  << " is: " << t6.getHealth() << endl;
 	cout << "Health for " << t7.getName()  << " is: " << t7.getHealth() << endl;
 	cout << "Health for " << t8.getName()  << " is: " << t8.getHealth() << endl << endl;
 	cout <<  endl << "Health for team 2 is: " << t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth() << endl << endl;
-
+*/
 
 	cout << "Damage for " << t1.getName()  << " is: " << t1.getDmg() << endl;
 	cout << "Damage for " << t2.getName()  << " is: " << t2.getDmg() << endl;
@@ -145,36 +163,35 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 
 	int fighter_t1;
 	int fighter_t2;
-
+while(team1.at(0).getHealth() + team1.at(1).getHealth() + team1.at(2).getHealth() + team1.at(3).getHealth() > 0 && team2.at(0).getHealth() + team2.at(1).getHealth() + team2.at(2).getHealth() + team2.at(3).getHealth() > 0) {
 	cout << endl << "Choose a fighter from team 1 (0-3)" << endl;
 	cin >> fighter_t1;
 	cout << endl << "Choose a fighter from team 2 (0-3) that will be attacked by your previous choice" << endl;
 	cin >> fighter_t2;
 
-while(team1.at(0).getHealth() + team1.at(1).getHealth() + team1.at(2).getHealth() + team1.at(3).getHealth() > 0 && team2.at(0).getHealth() + team2.at(1).getHealth() + team2.at(2).getHealth() + team2.at(3).getHealth() > 0) {
 	team1.at(fighter_t1).attack(team2.at(fighter_t2));
 	team1.at(fighter_t2).attack(team1.at(fighter_t1));
 	cout << "" << team1.at(fighter_t1).getName() << " attacked " << team2.at(fighter_t2).getName() << " for " << team1.at(fighter_t1).getDmg() << endl;
 	cout << "" << team2.at(fighter_t2).getName() << " attacked " << team1.at(fighter_t1).getName() << " for " << team2.at(fighter_t2).getDmg() << endl;
 
 
-        if(team1.at(fighter_t1).checkLife() == 1) {
+        if(team1.at(fighter_t1).checkLife() == 0) {
                 cout << "Team 1's robot is alive" << endl;
         } else {
                 cout << "Team 1's robot is dead" << endl;
         }
-	if(team2.at(fighter_t2).checkLife() == 1) {
+	if(team2.at(fighter_t2).checkLife() == 0) {
 		cout << "Team 2's robot is still alive" << endl;
 	} else {
 		cout << "Team 2's robot is dead" << endl;
 	}
- }
+}
 
-if(t5.getHealth() + t6.getHealth() + t7.getHealth() + t7.getHealth() == 0) {
+if(t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth() < 0) {
 	cout << "Team 1 wins!" << endl;
 	return 0;
 }
-if(t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() == 0) {
+if(t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() < 0) {
 	cout << "Team 2 wins!" << endl;
 	return 0;
 }
