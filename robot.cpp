@@ -9,6 +9,8 @@ using namespace std;
 robot::robot(int init_dmg) {
 	dmg = init_dmg;
 };
+robot::robot() {
+};
 
 string robot::getName() {
  	return name;
@@ -20,6 +22,9 @@ int robot::getHealth() {
 
 int robot::getDmg() {
 	return dmg;
+};
+int robot::getType() {
+	return type;
 };
 
 int robot::checkLife() {
@@ -40,13 +45,17 @@ void robot::setHealth() {
 	cout << "Enter an amount: ";
 	cin >> health;
 };
+void robot::setType() {
+	cout << "Choose a class for this fighter: ";
+	cin >> type;
+};
 void robot::attack(robot& other_robot) {
 	other_robot.loseHealth(dmg);
 };
 void robot::loseHealth(int health_lost) {
 	health = health - health_lost;
 };
-tank::tank(int init_dmg) {
+tank::tank(int init_health) {
 };
 void tank::extraHealth(int health_add) {
 	health_add = health + 3;
@@ -56,7 +65,7 @@ mage::mage(int init_dmg) {
 void mage::extraDmg(int dmg_add) {
 	dmg_add = dmg + 3;
 };
-chad::chad(int init_dmg) {
+chad::chad(int init_dmg, int init_health) {
 };
 void chad::extraDmg(int dmg_add) {
 	dmg_add = dmg + 3;
@@ -67,7 +76,7 @@ void chad::extraHealth(int health_add) {
 
 int main() {
 /* team1.at(0).getHealth(); 'chain methods' */
-
+	cout << "1. Normal $5" << endl << "2. Tank $15" << endl << "3. Mage $15" << endl << "4. Chad $25" << endl;
 	srand((unsigned)time(0));
 	int random_integer = rand();
 	robot t1(rand() % 10 + 1);
@@ -81,28 +90,36 @@ int main() {
 
 	t1.setName();
 	t1.setHealth();
-/*
+	t1.setType();
+
 	t2.setName();
 	t2.setHealth();
+	t2.setType();
 
         t3.setName();
         t3.setHealth();
+	t3.setType();
 
         t4.setName();
         t4.setHealth();
-*/
+	t4.setType();
+
         t5.setName();
         t5.setHealth();
-/*
+	t5.setType();
+
         t6.setName();
         t6.setHealth();
+	t6.setType();
 
         t7.setName();
         t7.setHealth();
+	t7.setType();
 
         t8.setName();
         t8.setHealth();
-*/
+	t8.setType();
+
         vector <robot> team1;
         team1.push_back(t1);
         team1.push_back(t2);
@@ -125,32 +142,30 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 }
 
 
-
-
-
+	cout << endl << "Type for robot 1 is: " << t1.getType() << endl;
 	cout << endl << "Name for Robot 1 is: " << t1.getName() << endl;
-/*	cout << "Name for Robot 2 is: " << t2.getName() << endl;
+	cout << "Name for Robot 2 is: " << t2.getName() << endl;
 	cout << "Name for Robot 3 is: " << t3.getName() << endl;
 	cout << "Name for Robot 4 is: " << t4.getName() << endl;
 	cout << "Name for Robot 5 is: " << t5.getName() << endl;
 	cout << "Name for Robot 6 is: " << t6.getName() << endl;
 	cout << "Name for Robot 7 is: " << t7.getName() << endl;
 	cout << "Name for Robot 8 is: " << t8.getName() << endl << endl;
-*/
+
 
 
 
 	cout << "Health for " << t1.getName()  << " is: " << t1.getHealth() << endl;
-/*	cout << "Health for " << t2.getName()  << " is: " << t2.getHealth() << endl;
+	cout << "Health for " << t2.getName()  << " is: " << t2.getHealth() << endl;
 	cout << "Health for " << t3.getName()  << " is: " << t3.getHealth() << endl;
 	cout << "Health for " << t4.getName()  << " is: " << t4.getHealth() << endl;
-*/	cout <<  endl << "Health for team 1 is: " << t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() << endl << endl;
+	cout <<  endl << "Health for team 1 is: " << t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth() << endl << endl;
 	cout << "Health for " << t5.getName()  << " is: " << t5.getHealth() << endl;
-/*	cout << "Health for " << t6.getName()  << " is: " << t6.getHealth() << endl;
+	cout << "Health for " << t6.getName()  << " is: " << t6.getHealth() << endl;
 	cout << "Health for " << t7.getName()  << " is: " << t7.getHealth() << endl;
 	cout << "Health for " << t8.getName()  << " is: " << t8.getHealth() << endl << endl;
 	cout <<  endl << "Health for team 2 is: " << t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth() << endl << endl;
-*/
+
 
 	cout << "Damage for " << t1.getName()  << " is: " << t1.getDmg() << endl;
 	cout << "Damage for " << t2.getName()  << " is: " << t2.getDmg() << endl;
