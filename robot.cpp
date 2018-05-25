@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "robot.h"
 #include <vector>
@@ -75,51 +76,7 @@ void chad::extraHealth(int health_add) {
 };
 
 int main() {
-/* team1.at(0).getHealth(); 'chain methods' */
-	cout << "1. Normal $5" << endl << "2. Tank $15" << endl << "3. Mage $15" << endl << "4. Chad $25" << endl;
-	srand((unsigned)time(0));
-	int random_integer = rand();
-	robot t1(rand() % 10 + 1);
-	robot t2(rand() % 10 + 1);
-	robot t3(rand() % 10 + 1);
-	robot t4(rand() % 10 + 1);
-	robot t5(rand() % 10 + 1);
-	robot t6(rand() % 10 + 1);
-	robot t7(rand() % 10 + 1);
-	robot t8(rand() % 10 + 1);
-
-	t1.setName();
-	t1.setHealth();
-	t1.setType();
-
-	t2.setName();
-	t2.setHealth();
-	t2.setType();
-
-        t3.setName();
-        t3.setHealth();
-	t3.setType();
-
-        t4.setName();
-        t4.setHealth();
-	t4.setType();
-
-        t5.setName();
-        t5.setHealth();
-	t5.setType();
-
-        t6.setName();
-        t6.setHealth();
-	t6.setType();
-
-        t7.setName();
-        t7.setHealth();
-	t7.setType();
-
-        t8.setName();
-        t8.setHealth();
-	t8.setType();
-
+// team1.at(0).getHealth(); 'chain methods' 
         vector <robot> team1;
         team1.push_back(t1);
         team1.push_back(t2);
@@ -132,6 +89,78 @@ int main() {
         team2.push_back(t7);
         team2.push_back(t8);
 
+	cout << "1. Normal $5" << endl << "2. Tank $15" << endl << "3. Mage $15" << endl << "4. Chad $25" << endl;
+	srand((unsigned)time(0));
+	int random_integer = rand();
+
+	if (type == 2) {
+		team1.push_back(new tank());
+	}
+	if(type == 1) {
+		team1.push_back(new robot());
+	}
+	if(type == 3) {
+		team1.push_back(new mage());
+	}
+	if(type == 4) {
+		team1.push_back(new chad());
+	}
+        if (type == 2) {
+                team2.push_back(new tank());
+        }
+        if(type == 1) {
+                team2.push_back(new robot());
+        }
+        if(type == 3) {
+                team2.push_back(new mage());
+        }
+        if(type == 4) {
+                team2.push_back(new chad());
+        }
+
+
+	team1.at(0).setName();
+	team1.at(0).setDmg();
+	team1.at(0).setType();
+
+	team1.at(1).setName();
+	team1.at(1).setDmg();
+	team1.at(1).setType();
+
+	team1.at(2).setName();
+	team1.at(2).setDmg();
+	team1.at(2).setType();
+
+	team1.at(3).setName();
+	team1.at(3).setDmg();
+	team1.at(3).setType();
+
+	team1.at(4).setName();
+	team1.at(4).setDmg();
+	team1.at(4).setType();
+
+	team1.at(5).setName();
+	team1.at(5).setDmg();
+	team1.at(5).setType();
+
+	team1.at(5).setName();
+	team1.at(5).setDmg();
+	team1.at(5).setType();
+
+	team1.at(6).setName();
+	team1.at(6).setDmg();
+	team1.at(6).setType();
+
+	team1.at(7).setName();
+	team1.at(7).setDmg();
+	team1.at(7).setType();
+
+	team1.at(8).setName();
+	team1.at(8).setDmg();
+	team1.at(8).setType();
+
+
+
 if((t1.getHealth() + t2.getHealth() + t3.getHealth() + t4.getHealth()) > 30) {
 	cout << endl << "Your team health exceeds 30, you are disqualified, team 2 wins" << endl << endl;
 	return 0;
@@ -143,6 +172,14 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 
 
 	cout << endl << "Type for robot 1 is: " << t1.getType() << endl;
+	cout << "Type for robot 2 is: " << t2.getType() << endl;
+	cout << "Type for robot 3 is: " << t3.getType() << endl;
+	cout << "Type for robot 4 is: " << t4.getType() << endl;
+	cout << "Type for robot 5 is: " << t5.getType() << endl;
+	cout << "Type for robot 6 is: " << t6.getType() << endl;
+	cout << "Type for robot 7 is: " << t7.getType() << endl;
+	cout << endl << "Type for robot 8 is: " << t8.getType() << endl;
+
 	cout << endl << "Name for Robot 1 is: " << t1.getName() << endl;
 	cout << "Name for Robot 2 is: " << t2.getName() << endl;
 	cout << "Name for Robot 3 is: " << t3.getName() << endl;
@@ -151,7 +188,6 @@ if((t5.getHealth() + t6.getHealth() + t7.getHealth() + t8.getHealth()) > 30) {
 	cout << "Name for Robot 6 is: " << t6.getName() << endl;
 	cout << "Name for Robot 7 is: " << t7.getName() << endl;
 	cout << "Name for Robot 8 is: " << t8.getName() << endl << endl;
-
 
 
 
